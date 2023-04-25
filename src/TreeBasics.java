@@ -122,3 +122,36 @@ class Solution {
         return root;
     }
 }
+
+//find all path of tree
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+
+class Solution {
+    public static void helper(TreeNode node, ArrayList<String> arr, String str){
+        if(node==null){
+            return;
+        }
+        else if(node.left==null && node.right==null){
+            arr.add(str+node.val+"");
+        }
+        else{
+            str=str+node.val+"->";
+            helper(node.left,arr,str);
+            helper(node.right,arr,str);
+        }
+    }
+    public List<String> binaryTreePaths(TreeNode root) {
+        ArrayList<String> arr=new ArrayList<>();
+        String str="";
+        if(root==null){
+            return arr;
+        }
+        else{
+            helper(root,arr,str);
+        }
+        return arr;
+    }
+}
+
+
