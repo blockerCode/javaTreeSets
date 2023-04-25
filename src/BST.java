@@ -95,3 +95,43 @@ class Solution {
         return res;
     }
 }
+
+
+
+
+//path sum
+//find target sum from root to left node if exist ( condition is path cover both root and leaf also)
+
+
+class Solution {
+    public static boolean sum(TreeNode node,int sum, int target){
+        if(node==null){
+            return false;
+        }
+        int res=sum+node.val;
+        if(res==target && (node.left==null && node.right==null)){
+            return true;
+        }
+        else{
+            return sum(node.left,res,target) || sum(node.right,res,target);
+        }
+    }
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if(root==null){
+            return false;
+        }
+        if(root.left==null && root.right==null){
+            if(root.val==targetSum){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        boolean res=sum(root,0,targetSum);
+        return res;
+    }
+}
+
+
+
