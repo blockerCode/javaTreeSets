@@ -46,7 +46,7 @@ public class BST {
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //sort the array if array is not sorted then apply binary search and find the nodes.
 
-
+//for array
 class Solution {
     public static TreeNode bst(int[] arr, int l, int r){
         if(l>r){
@@ -68,4 +68,30 @@ class Solution {
 }
 
 
-
+//for list
+class Solution {
+    public static TreeNode bst( Integer[] arr, int l, int r){
+        if(l>r){
+            return null;
+        }
+        int mid=(l+r)/2;
+        TreeNode res=new TreeNode(arr[mid]);
+        res.left=bst(arr,l,mid-1);
+        res.right=bst(arr,mid+1,r);
+        return res;
+    }
+    public TreeNode sortedListToBST(ListNode head) {
+        ArrayList<Integer> arr=new ArrayList<>();
+        while(head!=null){
+            arr.add(head.val);
+            head=head.next;
+        }
+        Integer[] arr2 = new Integer[arr.size()];
+        arr2 = arr.toArray(arr2);
+        if(arr2.length==0){
+            return null;
+        }
+        TreeNode res=bst(arr2,0,arr2.length-1);
+        return res;
+    }
+}
