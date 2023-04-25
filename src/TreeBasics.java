@@ -91,3 +91,34 @@ class Solution {
         }
     }
 }
+
+
+//invert a tree
+
+
+class Solution {
+    public static void inverter(TreeNode root){
+        if(root==null){
+            return;
+        }
+        if(root!=null){
+            TreeNode temp=root.left;
+            root.left=root.right;
+            root.right=temp;
+            inverter(root.left);
+            inverter(root.right);
+        }
+    }
+    public TreeNode invertTree(TreeNode root) {
+        if(root==null){
+            return null;
+        }
+        else if(root.left==null && root.right==null){
+            return root;
+        }
+        else{
+            inverter(root);
+        }
+        return root;
+    }
+}
