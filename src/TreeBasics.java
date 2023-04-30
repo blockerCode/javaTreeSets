@@ -202,3 +202,32 @@ class Solution {
         return res+1;
     }
 }
+
+
+
+//n array binary tree preorder traversal
+
+class Solution {
+    public static void lists(Node root, List<Integer> lis){
+        if(root==null){
+            return;
+        }
+        else if(root.children.size()==0){
+            lis.add(root.val);
+        }
+        else{
+            lis.add(root.val);
+            for(Node i: root.children){
+                lists(i, lis);
+            }
+        }
+        return;
+    }
+    public List<Integer> preorder(Node root) {
+        int max=0;
+        int res=0;
+        List<Integer> lis=new ArrayList<>();
+        lists(root, lis);
+        return lis;
+    }
+}
