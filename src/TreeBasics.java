@@ -178,4 +178,27 @@ class Solution {
     }
 }
 
+//max depth of n array tree
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+class Solution {
 
+    public int maxDepth(Node root) {
+        int max=0;
+        int res=0;
+        if(root==null){
+            return res;
+        }
+        else if(root.children.size()==0){
+            return res+1;
+        }
+        else{
+            for(Node i: root.children){
+                max = maxDepth(i);
+                if(max>res){
+                    res=max;
+                }
+            }
+        }
+        return res+1;
+    }
+}
