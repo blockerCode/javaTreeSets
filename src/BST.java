@@ -135,3 +135,27 @@ class Solution {
 
 
 
+//unique bst possible
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+
+class Solution {
+    public static int uniqueBST(int n, Map<Integer, Integer> map){
+        if(map.containsKey(n)){
+            return map.get(n);
+        }
+        int sum=0;
+        for(int i=1;i<=n;i++){
+            sum=sum+(uniqueBST(i-1, map)*uniqueBST(n-i, map));
+        }
+        map.put(n,sum);
+        return sum;
+    }
+    public int numTrees(int n) {
+        Map<Integer,Integer> map=new HashMap<>();
+        map.put(0,1);
+        map.put(1,1);
+        return uniqueBST(n, map);
+    }
+}
+
