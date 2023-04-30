@@ -155,3 +155,27 @@ class Solution {
 }
 
 
+//diameter of binary tree
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+class Solution {
+    public static int depth(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        return Math.max(1+depth(root.left),1+depth(root.right));
+    }
+    public int diameterOfBinaryTree(TreeNode root) {
+        if(root==null){
+            return 0;
+        }
+        int res = depth(root.left)+depth(root.right);
+        System.out.print(root.val+"::::"+res+"result ");
+        int lef = diameterOfBinaryTree(root.left);
+        int ri = diameterOfBinaryTree(root.right);
+        System.out.print(lef+"::::::"+ri+"result ");
+        return Math.max(res,Math.max(lef,ri));
+    }
+}
+
+
