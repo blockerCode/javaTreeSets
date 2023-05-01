@@ -137,6 +137,12 @@ class Solution {
 
 //unique bst possible
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+//if we have n nodes
+//1,2,3,4,5,........n, and suppose if we take any node as root node(i) then left side we have 1 to i-1 and
+//right side we have i+1 to n or (n-1) nodes. so for ex if we have left side 4 nde and right side 5 node so total combination is
+//4*5=20. so for any f(n) = f(i-1) * f(n-i). this is catalan number pattern
+
+(2n)! / (n! * (n+1)!) -> direct answer for catalan number
 
 
 class Solution {
